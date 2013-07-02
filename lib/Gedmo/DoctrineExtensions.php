@@ -22,7 +22,7 @@ final class DoctrineExtensions
     /**
      * Current version of extensions
      */
-    const VERSION = '2.3.0-DEV';
+    const VERSION = '2.4.0-DEV';
 
     /**
      * Flag if annotations were included into registry
@@ -46,7 +46,6 @@ final class DoctrineExtensions
             $reader = new CachedReader(new AnnotationReader, new ArrayCache);
         }
         $annotationDriver = new DriverORM\AnnotationDriver($reader, array(
-            __DIR__.'/Translatable/Entity',
             __DIR__.'/Loggable/Entity',
             __DIR__.'/Tree/Entity',
         ));
@@ -88,7 +87,6 @@ final class DoctrineExtensions
             $reader = new CachedReader(new AnnotationReader, new ArrayCache);
         }
         $annotationDriver = new DriverMongodbODM\AnnotationDriver($reader, array(
-            __DIR__.'/Translatable/Document',
             __DIR__.'/Loggable/Document',
         ));
         $driverChain->addDriver($annotationDriver, 'Gedmo');
